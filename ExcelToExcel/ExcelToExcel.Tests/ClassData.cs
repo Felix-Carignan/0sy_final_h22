@@ -16,4 +16,17 @@ namespace ExcelToExcel.Tests
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
+
+
+    class GoodInGoodOut : IEnumerable<object[]>
+    {
+        public IEnumerator<object[]> GetEnumerator()
+        {
+            yield return new object[] { "liste_especes.xlsx", "liste_especes.csv" };
+            yield return new object[] { "liste_especes.xlsx", "liste_especes.json" };
+            yield return new object[] { "liste_especes.xlsx", "liste_especes.xlsx" };
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
 }
