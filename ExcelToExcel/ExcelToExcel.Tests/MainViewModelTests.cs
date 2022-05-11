@@ -75,6 +75,22 @@ namespace ExcelToExcel.Tests
         }
 
         // TODO : Q03 : Créer le test CanExecuteSaveCommand_OutputFileInvalid_ShouldReturn_False
+        [Theory]
+        [ClassData(typeof(GoodInBadOut))]
+        public void CanExecuteSaveCommand_OutputFileInvalid_ShouldReturn_False(string Ifn, string Ofn)
+        {
+            /// Arrange
+            var filename = Path.Combine(excelFilesPath, Ifn);
+            vm.InputFilename = filename;
+            vm.LoadContentCommand.Execute("");
+            vm.OutputFilename = Path.Combine(excelFilesPath, Ofn);
+
+            /// Act
+            var actual = vm.SaveCommand.CanExecute("");
+
+            /// Assert
+            Assert.False(actual);
+        }
 
         // TODO : Q04 : Créer le test CanExecuteSaveCommand_OutputFileValid_ShouldReturn_True(string filename)
 

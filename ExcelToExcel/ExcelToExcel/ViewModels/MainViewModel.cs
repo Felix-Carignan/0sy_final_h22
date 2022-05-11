@@ -136,7 +136,9 @@ namespace ExcelToExcel.ViewModels
             /// 
 
             if (especes == null) return false;
-            
+            if (!(OutputFilename.EndsWith(".csv") || OutputFilename.EndsWith(".json") || OutputFilename.EndsWith(".xlsx"))) return false;
+
+
             return !string.IsNullOrEmpty(InputFilename);
         }
 
