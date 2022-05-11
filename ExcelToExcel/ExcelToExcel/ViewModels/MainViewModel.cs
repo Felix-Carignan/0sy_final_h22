@@ -135,6 +135,8 @@ namespace ExcelToExcel.ViewModels
             /// TODO : S'assurer que les tests de la commande fonctionne
             /// 
 
+            if (especes == null) return false;
+            
             return !string.IsNullOrEmpty(InputFilename);
         }
 
